@@ -11,7 +11,7 @@ def count_lines_in_file(file_path):
             lines = f.readlines()
         return len(lines)
     except Exception as e:
-        print(f"Erreur lors de la lecture du fichier {file_path}: {e}")
+        print("Erreur lors de la lecture du fichier ", file_path, ":",e)
         return 0
 
 def count_lines_in_directory(directory, extensions):
@@ -26,14 +26,19 @@ def count_lines_in_directory(directory, extensions):
                 lines = count_lines_in_file(file_path)
                 total_lines += lines
                 file_count += 1
-                print(f"{file}: {lines} lignes")
-    
+                print(file,":", lines," lignes")
+
+    sum_Line = total_lines 
+    sum_File = file_count
+    arevage = sum_Line / sum_File
+
     print("\n--- Statistiques ---")
-    print(f"Nombre total de fichiers : {file_count}")
-    print(f"Nombre total de lignes : {total_lines}")
+    print("Nombre total de fichiers : ", file_count)
+    print("Nombre total de lignes : " , total_lines)
+    print("Nombre moyen de lignes par fichier : " , arevage )
 
 # Config :
 if __name__ == "__main__":
-    chemin = r"YOUR\PATH"
-    extensions_cibles = [".py", ".txt"]  # Extensions recherchés
+    chemin = r"Your\Path"
+    extensions_cibles = [".py", ".txt"]  # Extensions recherchés/comptabilisé par le programme 
     count_lines_in_directory(chemin, extensions_cibles)
