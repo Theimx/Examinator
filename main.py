@@ -1,44 +1,40 @@
-# Un petit programme qui une fois utiliser sur un fichier 
-# te donne le nombre de ligne de code de tout les fichiers avec les extension choisie,
-#et peut ensuite te donner des stats 
-
 import os
 
-def count_lines_in_file(file_path):
+def count_lines_in_file(_filePath):
 
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-        return len(lines)
+        with open(_filePath, 'r', encoding='utf-8') as f:
+            _lines = f.readlines()
+        return len(_lines)
     except Exception as e:
-        print("Erreur lors de la lecture du fichier ", file_path, ":",e)
+        print("Erreur lors de la lecture du fichier ", _filePath, ":",e)
         return 0
 
-def count_lines_in_directory(directory, extensions):
+def count_lines_in_directory(_directory, _extensions):
 
-    total_lines = 0
-    file_count = 0
+    _totalLines = 0
+    _fileCount = 0
 
-    for root, _, files in os.walk(directory):
+    for root, _, files in os.walk(_directory):
         for file in files:
-            if any(file.endswith(ext) for ext in extensions):
+            if any(file.endswith(ext) for ext in _extensions):
                 file_path = os.path.join(root, file)
                 lines = count_lines_in_file(file_path)
-                total_lines += lines
-                file_count += 1
+                _totalLines += lines
+                _fileCount += 1
                 print(file,":", lines," lignes")
 
-    sum_Line = total_lines 
-    sum_File = file_count
-    arevage = sum_Line / sum_File
+    _sumLine = _totalLines 
+    _sumFile = _fileCount
+    _arevage = _sumLine / _sumFile
 
     print("\n--- Statistiques ---")
-    print("Nombre total de fichiers : ", file_count)
-    print("Nombre total de lignes : " , total_lines)
-    print("Nombre moyen de lignes par fichier : " , arevage )
+    print("Nombre total de fichiers : ", _fileCount)
+    print("Nombre total de lignes : " , _totalLines)
+    print("Nombre moyen de lignes par fichier : " , _arevage )
 
 # Config :
 if __name__ == "__main__":
-    chemin = r"Your\Path"
+    chemin = r"C:\Users\gabrielfaimali\Desktop\VScode\Software-Engineering-Training"
     extensions_cibles = [".py", ".txt"]  # Extensions recherchés/comptabilisé par le programme 
     count_lines_in_directory(chemin, extensions_cibles)
