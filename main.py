@@ -36,5 +36,5 @@ def count_lines_in_directory(_directory, _extensions):
 # Config :
 if __name__ == "__main__":
     chemin = r"C:\Users\gabrielfaimali\Desktop\VScode\Software-Engineering-Training"
-    extensions_cibles = [".py", ".txt"]  # Extensions recherchés/comptabilisé par le programme 
-    count_lines_in_directory(chemin, extensions_cibles)
+    extensionsCibles = [".py", ".txt"]  # Extensions recherchés/comptabilisé par le programme 
+    count_lines_in_directory(chemin, extensionsCibles)
