@@ -26,7 +26,7 @@ def count_lines_in_directory(_directory, _extensions):
 
     _sumLine = _totalLines 
     _sumFile = _fileCount
-    _arevage = _sumLine / _sumFile
+    _arevage = format(_sumLine / _sumFile,'.2f')
 
     print("\n--- Statistiques ---")
     print("Nombre total de fichiers : ", _fileCount)
