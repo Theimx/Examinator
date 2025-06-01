@@ -11,7 +11,7 @@ def count_lines_in_file(_filePath):
             _lines = f.readlines()
         return len(_lines)
     except Exception as e:
-        print("Erreur lors de la lecture du fichier ", _filePath, ":",e)
+        print("Error while reading the file ", _filePath, ":",e)
         return 0
 
 def count_lines_in_directory(_directory, _extensions):
@@ -26,19 +26,19 @@ def count_lines_in_directory(_directory, _extensions):
                 lines = count_lines_in_file(file_path)
                 _totalLines += lines
                 _fileCount += 1
-                print(file,":", lines," lignes")
+                print(file,":", lines," lines")
 
     _sumLine = _totalLines 
     _sumFile = _fileCount
     _arevage = format(_sumLine / _sumFile,'.2f')
 
-    print("\n--- Statistiques ---")
-    print("Nombre total de fichiers : ", _fileCount)
-    print("Nombre total de lignes : " , _totalLines)
-    print("Nombre moyen de lignes par fichier : " , _arevage )
+    print("\n--- Statistics ---")
+    print("Number total of files : ", _fileCount)
+    print("Number total of lines : " , _totalLines)
+    print("Average lines per files : " , _arevage )
 
 # Config :
 if __name__ == "__main__":
-    chemin = r"D:\NSI"
+    chemin = r"/media/theimx/THEIMX/NSI"
     extensionsCibles = [".py", ".txt"]  # Extensions recherchés/comptabilisé par le programme 
     count_lines_in_directory(chemin, extensionsCibles)
