@@ -4,3 +4,4 @@ Software Version : 1.0
 AI : No AI used   
   
 Description :  
+A tool to get stats on your project files such as the number on lines of codes in every files and more.   
